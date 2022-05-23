@@ -1,4 +1,4 @@
-## Nginx - Reverse Proxy
+## Nginx with Docker
 
 ```bash
 # nginx.conf
