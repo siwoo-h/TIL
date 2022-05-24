@@ -1,4 +1,4 @@
-## Nginx with Docker
+## Nginx - Reverse Proxy (w/ Docker)
 
 > Nginx를 이용해서 Reverse Proxy를 구현할 수 있다. 외부에서 내부 서버로 접근하는 경우, 웹서버를 먼저 거쳐서 내부 서버로 프록시해준다.
 > Reverse Proxy를 사용하여 얻을 수 있는 장점은 크게 "보안"과 "로드밸런싱" 두가지로 볼 수 있다.
