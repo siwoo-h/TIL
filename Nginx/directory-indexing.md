@@ -1,4 +1,4 @@
-## Directory Indexing with Nginx
+# Directory Indexing with Nginx
 
 > 파일 리스트 서버를 만들기 위한 용도로 사용된다.
 > static 리소스를 담고 서빙하는 용도나 빌드 후 릴리즈 파일들을 넣는 용도로 사용할 수 있다.
@@ -18,3 +18,7 @@ server {
 	}
 }
 ```
+
+---
+
+Retrospective: [PR #1](https://github.com/siwoo-h/TIL/pull/1)
