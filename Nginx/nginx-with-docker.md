@@ -2,9 +2,12 @@
 
 ```bash
 # nginx.conf
+# nginx 동작 방식을 설정해 둔 파일
 
 http {
+    # 파일 확장자와 MIME 목록
     include       mime.types;
+    # 프록시 관련 환경 설정
     include       proxy.conf;
 
     # docker-compose.yml, app-frontend 컨테이너의 container_name: frontend 로 설정되어 있어야 한다.
@@ -13,10 +16,12 @@ http {
     }
     upstream backend {
         server  app-backend:8080;
+        # 접속 시 커넥션 유지 시간(초)
         keepalive 100;
     }
     default_type  application/octet-stream;
     sendfile        on;
+    # 접속 시 커넥션 유지 시간(초)(default: 10)
     keepalive_timeout  65;
     server {
         # Nginx는 80포트에서 모든 요청을 수신한다.
