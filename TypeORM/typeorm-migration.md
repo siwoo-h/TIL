@@ -92,3 +92,29 @@ import { DatabaseModule } from "@src/database/database.module";
 })
 export class AppModule {}
 ```
+
+```json
+// package.json
+"scripts": {
+    // ...
+    "migrate:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n Test",
+    "migrate:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
+    "migrate:revert": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert"
+}
+```
+
+---
+
+## Dockerfile
+
+배포하는 데 도커를 주로 사용하는데, 도커에서는 어떻게 마이그레이션을 사용할까? 도커 이미지에 `npm run migrate:run`을 포함시켜주면 된다. 마이그레이션 파일은 한번 실행되면 중복 실행되지 않기 때문에, 항상 최신 마이그레이션 파일을 실행할 수 있다.
+
+```Dockerfile
+# Dockerfile
+
+# 기타 설정 이후에...
+RUN npm install -g ts-node
+
+CMD npm run migrate:run \
+    && npm run start
+```
