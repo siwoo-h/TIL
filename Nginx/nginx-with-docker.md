@@ -79,8 +79,10 @@ services:
     image: app-frontend:v1.0
     container_name: frontend
     restart: always
-    ports:
-      - 3000:3000
+    # ports:
+    #   - 3000:3000
+    expose:
+      - 3000
     networks:
       - app_network
 
@@ -88,8 +90,10 @@ services:
     image: app-backend:v1.0
     container_name: backend
     restart: always
-    ports:
-      - 8080:8080
+    # ports:
+    #   - 8080:8080
+    expose:
+      - 8080
     networks:
       - app_network
 
@@ -116,5 +120,11 @@ networks:
 ```
 
 ---
+
+## Notes
+
+- expose vs ports (docker-compose.yml)
+  - expose: 호스트 내 다른 컨테이너 사이에서만 포트가 노출되어 액세스 가능하다.
+  - ports: 호스트 외부의 다른 호스트들도 호스트 포트번호로 액세스 가능하다.
 
 Retrospective: [PR #2](https://github.com/siwoo-h/TIL/pull/2)
