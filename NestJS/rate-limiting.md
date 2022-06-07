@@ -137,3 +137,5 @@ app.use(
   - 엔드포인트에 관계없이 동일 IP의 요청을 제한할 수 있어서, 서버 부하를 줄일 수 있다.
 - 단일 엔드포인트의 메모리 누수를 막기 위해서는 지역적으로 `@nestjs/throttler`를 채택했다.
   - NestJS 공식문서에서 제안하는 방법이고, 사용하기 편하다.
+- guard의 canActivate 핸들러 결과가 false 인 경우, 403 에러 코드를 응답한다.
+  - 다른 에러 코드를 반환하고 싶다면, `throw new UnauthorizedException();` 와 같이 예외 처리하면 된다.
