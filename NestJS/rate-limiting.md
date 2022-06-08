@@ -137,5 +137,15 @@ app.use(
   - 엔드포인트에 관계없이 동일 IP의 요청을 제한할 수 있어서, 서버 부하를 줄일 수 있다.
 - 단일 엔드포인트의 메모리 누수를 막기 위해서는 지역적으로 `@nestjs/throttler`를 채택했다.
   - NestJS 공식문서에서 제안하는 방법이고, 사용하기 편하다.
-- guard의 canActivate 핸들러 결과가 false 인 경우, 403 에러 코드를 응답한다.
+- Guard의 canActivate 핸들러 결과가 false 인 경우, 403 에러 코드로 응답한다.
   - 다른 에러 코드를 반환하고 싶다면, `throw new UnauthorizedException();` 와 같이 예외 처리하면 된다.
+
+### Guard 검사에서 통과되지 않는 경우, 트래픽 제한(rate-limit)이 의도대로 동작하지 않는다?
+
+- rate-limit는 트래픽 부하를 줄이기 위해 서버에서는 요청을 처리하지 않고, 바로 429 에러를 리턴하는 것이다.
+- 따라서, 서버에 부하를 주지 않는 경우에는 트래픽 제한이 필요없다.
+- `@nestjs/throttler`의 흐름은 다음과 같다.
+  1. API 요청
+  2. Guard 검사
+  3. return true? rate-limit 횟수 카운트한다. -> 요청은 계속 들어가고, 429 에러를 반환한다.
+  4. return false? rate-limit 횟수 카운트하지 않은 채, Guard에서 예외 처리한다. -> 요청은 계속 들어가고, Guard에서 예외처리한다.(default: 403 Forbidden)
