@@ -149,3 +149,11 @@ app.use(
   2. Guard 검사
   3. return true? rate-limit 횟수 카운트한다. -> 요청은 계속 들어가고, 429 에러를 반환한다.
   4. return false? rate-limit 횟수 카운트하지 않은 채, Guard에서 예외 처리한다. -> 요청은 계속 들어가고, Guard에서 예외처리한다.(default: 403 Forbidden)
+
+### Nginx를 통해 Reverse Proxy를 거쳐 요청을 받는 경우는 요청 클라이언트 IP를 알 수 없다?
+
+- 하나의 서버에 여러 IP에서 요청을 보내는 경우, 클라이언트 IP는 nginx IP로 처리된다.
+- 트래픽을 제한하는 경우는 서버 부하를 막는 것만이 유의미하다.
+- 그렇다면, 동일한 IP에서 과도한 요청이 들어오는 경우 어떻게 처리해야 하는걸까?
+  - nginx에서 지원하는 [limit_req](http://nginx.org/en/docs/http/ngx_http_limit_req_module.html) 모듈을 사용하면, 동일한 IP 에서 과도한 요청이 유입될 때, 이를 제한할 수 있다.
+  - Reverse Proxy가 이용되는 경우에는 WAS에서의 트래픽 제한은 서버 부하를 막기 위해 사용하는 것으로 하고, 클라이언트 IP 당 서버 부하를 막기 위해서는 Nginx의 limit_req 모듈을 이용하자.
