@@ -149,3 +149,9 @@ app.use(
   2. Guard 검사
   3. return true? rate-limit 횟수 카운트한다. -> 요청은 계속 들어가고, 429 에러를 반환한다.
   4. return false? rate-limit 횟수 카운트하지 않은 채, Guard에서 예외 처리한다. -> 요청은 계속 들어가고, Guard에서 예외처리한다.(default: 403 Forbidden)
+
+### Nginx를 통해 Reverse Proxy를 거쳐 요청을 받는 경우는 요청 클라이언트 IP를 알 수 없다?
+
+- 하나의 서버에 여러 IP에서 요청을 보내는 경우, 클라이언트 IP는 nginx IP로 처리된다.
+- 트래픽을 제한하는 경우는 서버 부하를 막는 것만이 유의미하다.
+- 동일한 IP의 무분별한 요청을 제한하기 위한 방법을 고민해봐야겠다.
