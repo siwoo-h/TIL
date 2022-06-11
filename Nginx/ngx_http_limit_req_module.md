@@ -1,7 +1,8 @@
 # ngx_http_limit_req_module
 
 > - `ngx_http_limit_req_module` 모듈은 단일 IP에서 오는 요청 처리 속도를 제한하는 데 사용된다.
-> - reverse proxy를 거치는 WAS에서 IP 기준으로 트래픽 제어를 하려고 했을 때, IP는 항상 Nginx IP를 클라이언트 IP로 받기 때문에 의도대로 동작하지 않는다.
+> - Nginx를 이용해 Reverse Proxy를 구성하는 경우 사용된다.
+> - Reverse Proxy를 거치는 WAS에서 IP 기준으로 트래픽 제어를 하려고 했을 때, IP는 항상 Nginx IP를 클라이언트 IP로 받기 때문에 의도대로 동작하지 않는다.
 
 ## Directives
 
