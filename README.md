@@ -17,3 +17,4 @@
 ## 📖 TypeORM
 
 - [TypeORM Migration](/TypeORM/typeorm-migration.md)
+- [Pagination](/TypeORM/pagination.md)
