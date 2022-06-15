@@ -2,6 +2,7 @@
 
 ## 📖 Common
 
+- [Compotency](/%08Common/competency.md)
 - [Documentation](/%08Common/documentation.md)
 
 ## 📖 NestJS
@@ -11,8 +12,8 @@
 ## 📖 Nginx
 
 - [Directory Indexing](/Nginx/directory-indexing.md)
-- [Reverse Proxy(w/ Docker)](/Nginx/nginx-with-docker.md)
 - [HTTP Limit Requests](/Nginx/ngx_http_limit_req_module.md)
+- [Reverse Proxy(w/ Docker)](/Nginx/nginx-with-docker.md)
 
 ## 📖 Node
 
@@ -20,5 +21,5 @@
 
 ## 📖 TypeORM
 
-- [TypeORM Migration](/TypeORM/typeorm-migration.md)
 - [Pagination](/TypeORM/pagination.md)
+- [TypeORM Migration](/TypeORM/typeorm-migration.md)
