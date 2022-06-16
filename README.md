@@ -12,7 +12,7 @@
 ## 📖 Nginx
 
 - [Directory Indexing](/Nginx/directory-indexing.md)
-- [HTTP Limit Requests](/Nginx/ngx_http_limit_req_module.md)
+- [Limit Requests](/Nginx/limit-req.md)
 - [Reverse Proxy(w/ Docker)](/Nginx/nginx-with-docker.md)
 
 ## 📖 Node
