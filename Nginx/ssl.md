@@ -16,10 +16,13 @@ SSL(Secure Sockets Layer)은 보안 프로토콜로서, 개인정보 보호, 인
 
 ```yml
 server {
+    # default_server 인자, 가상의 호스트가 다른 가상의 호스트들의 listen statement와 매치되지 않는 모든 요청에 응답한다.
     listen 80 default_server;
+    # IPv6 형식의 요청을 처리한다.
     listen [::]:80 default_server;
 
     # 80번 포트로 수신되면 443번 포트로 리다이렉션 시켜준다.
+    # HttpCode 301, 영구 이동(Permanently moved)
     return 301 https://$host$request_uri;
 }
 
@@ -27,11 +30,14 @@ server	{
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
+    # Name-Based Virtual Hosting(이름 기반 가상 호스팅)
     server_name localhost;
 
-    #ssl 설정
-    ssl on;
+    # deprecated from Nginx v1.15
+    # ssl on;
+    # 병합한 파일
     ssl_certificate /etc/ssl/certs/localhost.crt;
+    # 비공개 키
     ssl_certificate_key /etc/ssl/private/localhost.key;
 
     root /var/www/html;
