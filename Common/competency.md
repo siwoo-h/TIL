@@ -40,11 +40,11 @@
 
 ## 웹 백엔드 개발자 역량
 
-> - NodeJS 기반으로 백엔드 비지니스 로직을 개발하고 배포합니다.
-> - 데이터성격에 맞게 PostgreSQL과 Redis에 데이터를 적재하고 이용하는 코드를 작성합니다.
-> - SEO를 위한 Server Rendering과 Client Rendering을 위한 API를 설계하고 개발합니다.
-> - 여러 백엔드 개발자들이 협업하기 좋은 코드로 지속적으로 리팩토링합니다.
-> - 실행계획 (Explain) 을 통한 인덱스 설계/수정과 슬로우 쿼리에 대한 튜닝 등을 진행합니다.
-> - NewRelic, CloudWatch 등을 통해 시스템에서 발생하는 모든 이슈 사항에 대해서 추적하고 해결합니다
+> - NodeJS 기반으로 백엔드 비지니스 로직을 개발하고 배포한다.
+> - 데이터성격에 맞게 PostgreSQL과 Redis에 데이터를 적재하고 이용하는 코드를 작성한다.
+> - SEO를 위한 Server Rendering과 Client Rendering을 위한 API를 설계하고 개발한다.
+> - 여러 백엔드 개발자들이 협업하기 좋은 코드로 지속적으로 리팩토링한다.
+> - 실행계획 (Explain) 을 통한 인덱스 설계/수정과 슬로우 쿼리에 대한 튜닝 등을 진행한다.
+> - NewRelic, CloudWatch 등을 통해 시스템에서 발생하는 모든 이슈 사항에 대해서 추적하고 해결한다
 >
 > [백엔드 개발자(Node.js)](https://www.inflearn.com/pages/introduce-backend-developer), 인프런 발췌
