@@ -19,6 +19,7 @@
 ## 📖 Node
 
 - [Crypto](/Node/crypto.md)
+- [Self-signed certificate 에러 발생 원인](/Node/self-signed-certificate-exception.md)
 
 ## 📖 TypeORM
 
