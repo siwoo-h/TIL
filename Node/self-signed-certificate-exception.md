@@ -29,3 +29,8 @@ axios(url, options);
 // NOTE: 허가되지 않은 인증 TLS 통신을 거부하지 않겠다.
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 ```
+
+> NOTE:
+> 위 두가지 방법은 서버 인증서를 비활성화하는 방법으로 노드 앱을 MITM 공격에 노출시키는 것이므로 안전하지 않다. 따라서 개발 환경에서만 사용해야 한다.
+>
+> - 출처: [How to Resolve Certificate Errors in a Node.js App with SSL Calls](https://levelup.gitconnected.com/how-to-resolve-certificate-errors-in-nodejs-app-involving-ssl-calls-781ce48daded)
