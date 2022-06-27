@@ -61,3 +61,34 @@ server	{
     }
 }
 ```
+
+### 비표준 포트 http에서 비표준 포트 https로 리다이렉션하기
+
+```yml
+server	{
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name localhost;
+
+    ssl_certificate /etc/ssl/certs/localhost.crt;
+    ssl_certificate_key /etc/ssl/private/localhost.key;
+
+    root /var/www/html;
+
+    index index.html index.htm index.php index.nginx-debian.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # 비표준 포트 리다이렉션
+    # HttpCode 497: a regular request has been sent to the HTTPS port.
+    ## ssl on 이 적용되어 있는 서버 포트에 접근할 때 http로 요청한 경우 발생
+    error_page 497 https://$host:$server_port$request_uri;
+}
+```
+
+```
+
+```
