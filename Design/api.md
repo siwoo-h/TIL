@@ -1,4 +1,10 @@
-# HTTP API Design
+# API Design
+
+## HTTP API
+
+### 올바른 상태코드를 반환하라
+
+http 상태코드를 최대한 활용하자.<br>
 
 ## HTTP API vs REST API
 
