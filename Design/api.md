@@ -2,9 +2,9 @@
 
 ## HTTP API
 
-### 올바른 상태코드를 반환하라
-
-http 상태코드를 최대한 활용하자.<br>
+> HTTP API 디자인 가이드
+>
+> - [참고 문서](https://github.com/yoondo/http-api-design/tree/master/ko)
 
 ## HTTP API vs REST API
 
