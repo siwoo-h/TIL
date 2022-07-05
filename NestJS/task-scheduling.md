@@ -56,3 +56,82 @@ export class TaskService {
 |timeZone|실행 시간대|
 |utcOffset|UTC 기반 시간대의 오프셋, "+09:00"을 사용하거나 숫자 9를 사용함|
 |unrefTimeout|노드 프로세스를 중지하고 싶을 때 사용함. Node.js의 timeout.unref() 와 관련이 있음|
+
+### 2. 동적 태스크 스케줄링
+
+앱이 구동되는 과정에서 등록되는 방식([크론 잡 선언 방식](#1-크론-잡-선언-방식)은 그러함)이 아닌 동적으로 태스크를 등록/해제할 수 있는 방식이다.<br>
+동적 태스크 스케줄링은 `SchedulerRegistry`에서 제공하는 API를 사용합니다.
+
+```js
+import { CronJob } from 'cron';
+
+@Injectable()
+export class TaskService {
+  private readonly logger = new Logger(TaskService.name);
+
+  constructor(private schedulerRegistry: SchedulerRegistry) {
+        this.addCronJob();
+  }
+
+  addCronJob() {
+    const name = 'cronSample';
+
+    const job = new CronJob(`* * * * * *`, () => {
+      this.logger.warn(`run! ${name}`);
+    });
+
+    this.schedulerRegistry.addCronJob(name, job);
+
+    this.logger.warn(`job ${name} added!`);
+  }
+}
+```
+
+위 과정은 `SchedulerRegistry`에 크론 잡을 추가만 해 두는 것이지 태스크 스케줄링을 등록하는 것이 아니다.<br>
+그렇기 때문에 앱을 실행해봐도 스케줄링이 실행되지 않는다.<br>
+크론잡을 등록하도록 컨트롤러를 생성해보자.
+
+```js
+import { Controller, Post } from '@nestjs/common';
+import { SchedulerRegistry } from '@nestjs/schedule';
+
+@Controller('batches')
+export class BatchController {
+  constructor(private scheduler: SchedulerRegistry) { }
+
+  @Post('/start-sample')
+  start() {
+    const job = this.scheduler.getCronJob('cronSample');
+
+    job.start();
+    console.log('start!! ', job.lastDate());
+  }
+
+  @Post('/stop-sample')
+  stop() {
+    const job = this.scheduler.getCronJob('cronSample');
+
+    job.stop();
+    console.log('stopped!! ', job.lastDate());
+  }
+}
+```
+
+BatchController를 모듈에 선언한다.
+
+```js
+import { BatchController } from './batch.controller';
+
+@Module({
+  controllers: [BatchController],
+    ...
+})
+export class BatchModule { }
+```
+
+이제 API 요청으로 크론잡을 제어할 수 있게 되었다.
+
+> 자료 출처
+>
+> - NestJS, Task Scheduling [here](https://docs.nestjs.com/techniques/task-scheduling)
+> - NestJS로 배우는 백엔드 프로그래밍, 동적 태스크 스케줄링 [here](https://wikidocs.net/158663)
