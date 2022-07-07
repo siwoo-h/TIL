@@ -15,3 +15,8 @@ RFC 6455 명세서에 정의된 프로토콜인 웹소켓(WebSocket)을 사용�
 데이터 교환이 지속적으로 이뤄져야 하는 서비스에 적합하다.
 
 - 출처: 모던 자바스크립트 튜토리얼, WebSocket [link](https://ko.javascript.info/websocket)
+
+### WebSocket Protocol
+
+웹 소켓 프로토콜로는 `ws`와 `wss`가 있다. 이 두 프로토콜의 관계는 `http`와 `https`의 관계와 유사하다.<br>
+항상 `wss://` 프로토콜을 사용하자. 보안과 신뢰성 측면에서도 `ws`보다 안전한 프로토콜이다.
