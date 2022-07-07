@@ -20,3 +20,17 @@ RFC 6455 명세서에 정의된 프로토콜인 웹소켓(WebSocket)을 사용�
 
 웹 소켓 프로토콜로는 `ws`와 `wss`가 있다. 이 두 프로토콜의 관계는 `http`와 `https`의 관계와 유사하다.<br>
 항상 `wss://` 프로토콜을 사용하자. 보안과 신뢰성 측면에서도 `ws`보다 안전한 프로토콜이다.
+
+### Rate Limiting
+
+`socket.bufferedAmount` 프로퍼티에서는 얼마나 많은 바이트가 버퍼에 보관되어 있는지 저장하고 있다.
+
+```js
+// every 100ms examine the socket and send more data
+// only if all the existing data was sent out
+setInterval(() => {
+  if (socket.bufferedAmount == 0) {
+    socket.send(moreData());
+  }
+}, 100);
+```
