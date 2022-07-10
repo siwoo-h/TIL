@@ -13,6 +13,7 @@
 
 - [HTTP vs HTTPS](/Network/http-vs-https.md)
 - [IP Address](/Network/ip-address.md)
+- [Socket](/Network/socket.md)
 
 ## 📖 Nginx
 
