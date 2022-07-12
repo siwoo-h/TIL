@@ -8,12 +8,12 @@
 
 ### Contents
 
-- 올바른 상태 코드를 반환하라
-- 가능하다면 전체 리소스를 모두 제공하라
-- 요청의 본문에 직렬화된 JSON을 허용하라
-- 리소스 (UU)ID를 제공하라
-- 표준 타임스탬프를 제공하라
-- ISO8601 포맷에 맞춘 UTC 시간을 사용하라
+- [🔗 올바른 상태 코드를 반환하라](#올바른-상태-코드를-반환하라)
+- [🔗 가능하다면 전체 리소스를 모두 제공하라](#가능하다면-전체-리소스를-모두-제공하라)
+- [🔗 요청의 본문에 직렬화된 JSON을 허용하라](#요청의-본문에-직렬화된-json을-허용하라)
+- [🔗 리소스 (UU)ID를 제공하라](#리소스-uuid를-제공하라)
+- [🔗 표준 타임스탬프를 제공하라](#표준-타임스탬프를-제공하라)
+- [ISO8601 포맷에 맞춘 UTC 시간을 사용하라]
 - 일관성 있는 경로 포맷을 사용하라
 - 경로와 속성은 소문자로 만들어라
 - 외래 키 관계를 중첩시켜라
@@ -31,6 +31,103 @@
 - 안정성의 정도를 나타내라
 - TLS을 요구하라
 - 보기 좋게 출력되는 JSON을 기본으로 하라
+
+### 올바른 상태 코드를 반환하라
+
+상황에 맞는 올바른 상태 코드를 반환해야한다.<br>
+성공적인 상태 코드도 상황에 따라 분기되어야 한다.
+
+- 200: GET 호출과 DELETE 또는 PATCH 호출에 따른 요청이 성공했고, 동시에 완료됐다.
+- 201: POST 호출에 따른 요청이 성공했고, 동시에 완료됐다.
+- 202: POST나 DELETE나 PATCH 호출을 받았고, 비동기적으로 수행될 예정이다.
+- 206: GET이 성공했지만 부분적인 응답만이 반환됐다.
+
+자세한 스펙은 [HTTP Status](https://developer.mozilla.org/ko/docs/Web/HTTP/Status) 를 확인해보자.
+
+```bash
+$ curl -X DELETE \
+  https://service.com/apps/1f9b/domains/0fd4
+
+# 잘못된 응답 예시
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=utf-8
+...
+{
+  "messge": "deleted"
+}
+
+# 올바른 응답 예시
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=utf-8
+...
+{
+  "created_at": "2012-01-01T12:00:00Z",
+  "hostname": "subdomain.example.com",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "updated_at": "2012-01-01T12:00:00Z"
+}
+```
+
+### 가능하다면 전체 리소스를 모두 제공하라
+
+리소스 조회(GET) 요청 뿐 아니라 DELETE, PUT, PATCH을 포함한 200, 201 응답에서 전체 리소스를 제공하자.<br>
+
+```bash
+$ curl -X DELETE \
+  https://service.com/apps/1f9b/domains/0fd4
+
+# 잘못된 응답 예시
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=utf-8
+...
+{
+  "messge": "deleted"
+}
+
+# 올바른 응답 예시
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=utf-8
+...
+{
+  "created_at": "2012-01-01T12:00:00Z",
+  "hostname": "subdomain.example.com",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "updated_at": "2012-01-01T12:00:00Z"
+}
+```
+
+### 요청의 본문에 직렬화된 JSON을 허용하라
+
+양식에 따라 인코딩된 데이터를 대신하거나 그에 덧붙여, PUT/PATCH/POST 요청 본문에 직렬화된 JSON을 허용하자.<br>
+이는 JSON으로 직렬화된 응답 본문과 잘 어울리는 대칭성을 부여해준다.
+클라이언트에서 요청을 보낼 때, `Content-Type: application/json`를 설정해서 데이터 응답으로 리소스를 제공받자.
+
+### 리소스 (UU)ID를 제공하라
+
+각 리소스의 ID에 uuid를 사용하도록 권고한다.
+
+> Q. uuid와 increment pk를 사용해야하는 시점은 언제일까? <br>
+>
+> A. 어플리케이션 내부용 키로는 increment pk를, 외부에 공개할 키로는 uuid를 사용하는 것을 권장한다. <br>
+> 어플리케이션 내부에서 참조키로 increment pk를 이용할 때, uuid에 비해 테이블과 인덱스의 크기를 줄여 메모리와 디스크 사용량을 줄이는 이점을 준다.
+> 외부에 식별값이 노출되는 경우에는 uuid를 사용하도록 하자. 자동 증분 값을 id로 설정하는 경우 의도하지 않은 정보를 노출하는 등의 보안 상 문제가 발생할 수 있다.
+
+### 표준 타임스탬프를 제공하라
+
+리소스에 created_at과 updated_at 타임스탬프를 기본으로 제공하자.
+
+> Q. 타임스탬프가 가지는 의의는 무엇일까?
+>
+> A. 전자문서가 어느 특정 시각에 존재하고 있었다는 것을 증명하는 것과 동시에, 그 시각 이후에 데이터가 변경되지 않았음을 증명하는 전자적 기술이다.
+>
+> - 첨부 자료: 타임스탬프 솔루션, [타임스탬프의 필요성](http://www.timestamping.co.kr/?mid=menu2_need)
+
+### ISO8601 포맷에 맞춘 UTC 시간을 사용하라
+
+ISO8601 포맷은 날짜와 시간과 관련된 데이터 교환을 다루는 국제 표준이다.<br>
+Date을 권고 사항으로 설정하자.
+
+---
 
 ## HTTP API vs REST API
 
