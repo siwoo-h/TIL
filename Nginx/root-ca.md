@@ -42,3 +42,11 @@ CA(Certificate Authority, 인증 기관)란 SSL 인증서를 발급해주는 기
 - 또한 배치가 쉽고 빠르므로 내부(인트라넷) 서버용으로 적합함
 - 추가로, 클라이언트 OS에 Root CA 인증서를 설치하면, 인증서 유효성 검사에 통과할 수 있다.
   - 브라우저 주소창의 "주의 요함" 경고문을 없앨 수 있다.
+  - [여기](https://oboki.net/workspace/system/linux/how-to-use-trusted-self-signed-certificate-for-local-secure-env/)에서 자세히 설명하고 있다.
+
+## 참고 자료
+
+- [HTTPS 통신 과정 쉽게 이해하기](https://aws-hyoh.tistory.com/entry/HTTPS-%ED%86%B5%EC%8B%A0%EA%B3%BC%EC%A0%95-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-3SSL-Handshake)
+- [SSL의 통신과정](https://canstoo.tistory.com/3)
+- [[network] 폐쇄망 로컬 환경에서 CA-signed SSL 인증서 이용하기 (“trusted” self-signed certificate)](https://oboki.net/workspace/system/linux/how-to-use-trusted-self-signed-certificate-for-local-secure-env/)
+- [신뢰되지 않는 인증서를 사용하여 SSL 구성](https://www.ibm.com/docs/ko/mpf/7.1.0?topic=server-configuring-ssl-by-using-untrusted-certificates)
