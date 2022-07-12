@@ -20,6 +20,7 @@
 - [Directory Indexing](/Nginx/directory-indexing.md)
 - [Limit Requests](/Nginx/limit-req.md)
 - [Reverse Proxy(w/ Docker)](/Nginx/nginx-with-docker.md)
+- [Root CA](/Nginx/root-ca.md)
 - [SSL](/Nginx/ssl.md)
 
 ## 📖 Node
