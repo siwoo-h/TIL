@@ -63,6 +63,8 @@ $ curl -v -I https://{url}:{port}
 $ curl -v -I https://{url}:{port} --cacert {self-signed root CA 인증서 경로}
 ```
 
+![self_signed_root_ca_curl_success](./public/self_signed_ca_curl_success.png)
+
 ## 참고 자료
 
 - [HTTPS 통신 과정 쉽게 이해하기](https://aws-hyoh.tistory.com/entry/HTTPS-%ED%86%B5%EC%8B%A0%EA%B3%BC%EC%A0%95-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-3SSL-Handshake)
