@@ -88,7 +88,3 @@ server	{
     error_page 497 https://$host:$server_port$request_uri;
 }
 ```
-
-```
-
-```
