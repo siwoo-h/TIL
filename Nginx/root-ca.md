@@ -44,6 +44,25 @@ CA(Certificate Authority, 인증 기관)란 SSL 인증서를 발급해주는 기
   - 브라우저 주소창의 "주의 요함" 경고문을 없앨 수 있다.
   - [여기](https://oboki.net/workspace/system/linux/how-to-use-trusted-self-signed-certificate-for-local-secure-env/)에서 자세히 설명하고 있다.
 
+## NOTE
+
+### 사설 Root CA에서 발급한 인증서 설정이 제대로 되었는지 확인하는 방법
+
+인증서가 정상적으로 동작하는지 확인하기 위해 다음과 같이 요청을 시도했다.
+
+```
+$ curl -v -I https://{url}:{port}
+```
+
+이렇게 요청을 보내니, SSL 유효성 검사에서 실패하여 헤더를 가져올 수 없었다.
+![self_signed_root_ca_curl_fail](./public/self_signed_ca_curl_fail.png)
+
+해결 방법은 rootCA 인증서를 요청에 같이 포함시켜주는 것이었다.
+
+```
+$ curl -v -I https://{url}:{port} --cacert {self-signed root CA 인증서 경로}
+```
+
 ## 참고 자료
 
 - [HTTPS 통신 과정 쉽게 이해하기](https://aws-hyoh.tistory.com/entry/HTTPS-%ED%86%B5%EC%8B%A0%EA%B3%BC%EC%A0%95-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-3SSL-Handshake)
