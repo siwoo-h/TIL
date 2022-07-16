@@ -1,4 +1,4 @@
-# ISO 7 Layers
+# ISO 7 Layer
 
 - 네트워크 : 사용자 혹은 데이터가 어떤 곳에서 다른 곳으로 이동 할 수 있게 만든 통로입니다. 현대의 네트워크는 TCP/IP를 이용하고 어떤한 곳이든 접근할 수 있게 해줍니다.
 
@@ -13,3 +13,7 @@
 - 7계층 응용층 : 응용 프로그램에서 서비스를 수행
 
 > 출처: [OSI 7 계층 이란?](https://github.com/cheese10yun/TIL/blob/master/network/OSI-7%EA%B3%84%EC%B8%B5.md)
+
+# ISO 7 Layer vs TCP/IP 4 Layer
+
+![ISO 7 Layer vs TCP/IP 4 Layer](/Network/public/7-layer-vs-4-layer.png)
