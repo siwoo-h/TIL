@@ -14,9 +14,11 @@
 
 > 출처: [OSI 7 계층 이란?](https://github.com/cheese10yun/TIL/blob/master/network/OSI-7%EA%B3%84%EC%B8%B5.md)
 
-# ISO 7 Layer vs TCP/IP 4 Layer
+# OSI 7 Layer vs TCP/IP 4 Layer
 
-![ISO 7 Layer vs TCP/IP 4 Layer](/Network/public/7-layer-vs-4-layer.png)
+|           ![OSI 7 Layer vs TCP/IP 4 Layer](/Network/public/7-layer-vs-4-layer.png)           |
+| :------------------------------------------------------------------------------------------: |
+| 출처: [OSI 7Layer/7계층 개념 및 역할, 구조까지 한번에 알아보기](https://onecoin-life.com/19) |
 
 # TCP/IP 프로토콜
 
@@ -39,6 +41,7 @@
 ## DICOM 프로토콜
 
 - TCP/IP 프로토콜 기반으로 응용 계층에 해당한다.
-  | ![DICOM-as-an-application-layer-protocol](/Network/public/DICOM-as-an-application-layer-protocol.png) |
-  |:--:|
-  | 출처: [DICOM as an application layer protocol](https://www.researchgate.net/figure/DICOM-as-an-application-layer-protocol_fig1_51117827) |
+
+|                  ![DICOM-as-an-application-layer-protocol](/Network/public/DICOM-as-an-application-layer-protocol.png)                   |
+| :--------------------------------------------------------------------------------------------------------------------------------------: |
+| 출처: [DICOM as an application layer protocol](https://www.researchgate.net/figure/DICOM-as-an-application-layer-protocol_fig1_51117827) |
