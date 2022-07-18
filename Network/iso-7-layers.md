@@ -1,4 +1,4 @@
-# ISO 7 Layer
+# OSI(Open System Interconnection) 7 Layer
 
 - 네트워크 : 사용자 혹은 데이터가 어떤 곳에서 다른 곳으로 이동 할 수 있게 만든 통로입니다. 현대의 네트워크는 TCP/IP를 이용하고 어떤한 곳이든 접근할 수 있게 해줍니다.
 
@@ -22,7 +22,7 @@
 
 ## IP(Internet Protocol, 인터넷 프로토콜)
 
-- TCP/IP 4 layer: 인터넷 계층(L2) <-> ISO 7 layer: 네트워크 계층(L3)
+- TCP/IP 4 layer: 인터넷 계층(L2) <-> OSI 7 layer: 네트워크 계층(L3)
 - 지정한 IP 주소(IP Address)에 데이터 전달
 - 패킷(Packet)이라는 통신 단위로 데이터 전달
 - IP 프로토콜은 패킷의 순서 보장도 하지 않고, 최대한 빠르게 목적지에 전송
@@ -30,7 +30,7 @@
 
 ## TCP(Transmission Control Protocol, 전송 제어 프로토콜)
 
-- TCP/IP 4 Layer: 전송 계층(L3) <-> ISO 7 layer: 전송 계층(L4)
+- TCP/IP 4 Layer: 전송 계층(L3) <-> OSI 7 layer: 전송 계층(L4)
 - 데이터의 전달을 보증하고 보낸 순서대로 받을 수 있음
 - 상대방에게 제대로 보내기 위해 `3 way handshake` 통신 방법 이용
   - SYN, ACK라는 TCP 플래그를 이용하여 패킷 송수신을 확인함
