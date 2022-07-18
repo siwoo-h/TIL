@@ -18,7 +18,7 @@
 
 ![ISO 7 Layer vs TCP/IP 4 Layer](/Network/public/7-layer-vs-4-layer.png)
 
-# TCP/IP
+# TCP/IP 프로토콜
 
 ## IP(Internet Protocol, 인터넷 프로토콜)
 
@@ -35,3 +35,10 @@
 - 데이터의 전달을 보증하고 보낸 순서대로 받을 수 있음
 - 상대방에게 제대로 보내기 위해 `3 way handshake` 통신 방법 이용
   - SYN, ACK라는 TCP 플래그를 이용하여 패킷 송수신을 확인함
+
+## DICOM 프로토콜
+
+- TCP/IP 프로토콜 기반으로 응용 계층에 해당한다.
+  | ![DICOM-as-an-application-layer-protocol](/Network/public/DICOM-as-an-application-layer-protocol.png) |
+  |:--:|
+  | 출처: [DICOM as an application layer protocol](https://www.researchgate.net/figure/DICOM-as-an-application-layer-protocol_fig1_51117827) |
