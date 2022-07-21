@@ -33,3 +33,26 @@ uploadFileAndPassValidation(
 > 예제를 실행해보지 못한 이유
 > `ParseFilePipe` 는 제공 조차 하지 않았고, 구글링해도 공식문서에서 언급한 것 이외에 사용 예시를 찾을 수가 없었다.
 > 아직도 발견하지 못했다.
+
+## 커스텀 데코레이터 활용하기
+
+`multer` 미들웨어를 거치면 request.file 에 파일 정보가 저장된다.<br>
+커스텀 데코레이터를 이용해서 request.file 의 유효성 검사를 할 수 있더라.
+
+```js
+import {
+  BadRequestException,
+  createParamDecorator,
+  ExecutionContext,
+} from "@nestjs/common";
+
+export const File = createParamDecorator(
+  (data: unknown, ctx: ExecutionContext) => {
+    const req = ctx.switchToHttp().getRequest();
+    if (!req?.file) {
+      throw new BadRequestException("file must be a Express.Multer.File");
+    }
+    return req.file;
+  }
+);
+```
