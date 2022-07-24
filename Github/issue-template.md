@@ -34,7 +34,7 @@ name: 템플릿 이름
 about: 템플릿 설명
 title: 기본 title
 labels: 기본 labels
-assignees: 기본 assignee (GitHub Username을 적어줍니다, 기본 설정을 원치 않으면 '' 공백으로 설정합니다.)
+assignees: 기본 assignee (GitHub Username, default: '')
 ---
 ```
 
@@ -45,7 +45,7 @@ assignees: 기본 assignee (GitHub Username을 적어줍니다, 기본 설정을
 ```
 ---
 name: Bug Report
-about: Create a bug report to help improve this project
+about: Create a bug report to help improve us
 title: "bug: "
 labels: 'bug'
 assignees: ''
