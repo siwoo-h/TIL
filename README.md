@@ -5,9 +5,15 @@
 - [Compotency](/%08Common/competency.md)
 - [Documentation](/%08Common/documentation.md)
 
+## 📖 Design
+
+- [API](/Design/api.md)
+
 ## 📖 NestJS
 
+- [File Upload](/NestJS/file-upload.md)
 - [Rate Limiting](/NestJS/rate-limiting.md)
+- [Task Scheduling](/NestJS/task-scheduling.md)
 
 ## 📖 Network
 
