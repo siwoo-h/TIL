@@ -9,6 +9,10 @@
 
 - [API](/Design/api.md)
 
+## 📖 Github
+
+- [Issue Template](/Github/issue-template.md)
+
 ## 📖 NestJS
 
 - [File Upload](/NestJS/file-upload.md)
