@@ -2,7 +2,7 @@
 
 ## 📖 Common
 
-- [Compotency](/%08Common/competency.md)
+- [Competency](/%08Common/competency.md)
 - [Documentation](/%08Common/documentation.md)
 
 ## 📖 Design
