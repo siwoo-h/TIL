@@ -55,4 +55,6 @@ import { HttpExceptionFilter } from "@src/filter/http-exception.filter.ts";
 export class AppModule {}
 ```
 
-Exception Filter를 이용하여 일관적인 예외로 응답 처리할 수 있다.
+Exception Filter를 이용하여 일관적인 예외로 응답 처리할 수 있다.<br>
+설령, 예기치 못한 에러가 발생할지라도 너무 걱정 말자.<br>
+Exception Filter에서 잡아줄 것이다.<br>
