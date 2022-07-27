@@ -16,6 +16,7 @@
 ## 📖 NestJS
 
 - [File Upload](/NestJS/file-upload.md)
+- [HTTP Exception](/NestJS/http-exception.md)
 - [Rate Limiting](/NestJS/rate-limiting.md)
 - [Task Scheduling](/NestJS/task-scheduling.md)
 
