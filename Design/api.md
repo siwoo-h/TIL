@@ -18,7 +18,7 @@
 - 경로와 속성은 소문자로 만들어라
 - [🔗 외래 키 관계를 중첩시켜라](#외래-키-관계를-중첩시켜라)
 - 편의성을 위해 ID가 아닌 역참조를 지원하라
-- 구조화된 오류를 생성하라
+- [🔗 구조화된 오류를 생성하라](#구조화된-오류를-생성하라)
 - Etag 캐싱을 지원하라
 - 요청 ID로 요청을 추적하라
 - 범위를 지정해 페이지를 만들라
@@ -160,6 +160,33 @@ ISO8601 포맷은 날짜와 시간과 관련된 데이터 교환을 다루는 �
   "name": "service-production",
   "owner_id": "5d8201b0...",
   ...
+}
+```
+
+### 구조화된 오류를 생성하라
+
+요류가 발생하면 일관성 있고 구조화된 응답 본문을 생성하자.
+
+```js
+// 예제 응답 구조
+// id: 기계가 읽을 수 있는 오류
+// message: 사람이 읽을 수 있는 오류
+// url: 오류에 관한 정보와 해결 방안
+{
+  "id":      "rate_limit",
+  "message": "Account reached its API rate limit.",
+  "url":     "https://docs.service.com/rate-limits"
+}
+
+// 실제 활용 예시
+// TODO: 예제 응답 구조를 활용하는 방법 고민하기
+// statusCode: HTTP code
+// error: 예외처리 분류
+// message: 에러 메시지
+{
+  "statusCode": 401,
+  "error": "Unauthorized",
+  "message": "Permission denied",
 }
 ```
 
