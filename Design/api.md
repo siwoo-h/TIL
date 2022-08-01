@@ -21,7 +21,7 @@
 - [🔗 구조화된 오류를 생성하라](#구조화된-오류를-생성하라)
 - [🔗 Etag 캐싱을 지원하라](#etag-캐싱을-지원하라)
 - [🔗 요청 ID로 요청을 추적하라](#요청-id로-요청을-추적하라)
-- 범위를 지정해 페이지를 만들라
+- [🔗 범위를 지정해 페이지를 만들라](#범위를-지정해-페이지를-만들라)
 - 빈도 제한 상태를 보여줘라
 - 승인 헤더로 버전을 매겨라
 - 경로 중첩을 최소화하라
@@ -207,6 +207,34 @@ ISO8601 포맷은 날짜와 시간과 관련된 데이터 교환을 다루는 �
 >
 > 출처: https://github.com/yoondo/http-api-design/tree/master/ko#%EC%9A%94%EC%B2%AD-id%EB%A1%9C-%EC%9A%94%EC%B2%AD%EC%9D%84-%EC%B6%94%EC%A0%81%ED%95%98%EB%9D%BC
 
+### 범위를 지정해 페이지를 만들라
+
+많은 양의 데이터가 만들어지는 응답은 여러 페이지로 나누도록 하자.<br>
+`Content-Range` 헤더를 사용해 페이지를 나누는 요청을 전달하자.<br>
+요청과 응답의 헤더, 상태 코드, 제한, 순서, 페이지 이동 등의 세부 사항은 범위에 관한 히로쿠 플랫폼 API의 예제를 살펴보자.<br>
+
+> `Content-Range` HTTP 응답 헤더는 전체 바디 메시지에 속한 부분 메시지의 위치를 알려줍니다.
+>
+> **Syntax:**
+> Content-Range: <unit> <range-start>-<range-end>/<size>
+> Content-Range: <unit> <range-start>-<range-end>/_
+> Content-Range: <unit> _/<size>
+
+예시를 살펴보자.<br>
+**요청**
+
+```
+GET /file.zip HTTP/1.1
+Range: bytes=100-200
+```
+
+**응답**
+
+```
+HTTP/1.1 206 Partial Content
+Content-Range: bytes 100-200/500
+```
+
 ---
 
 ## HTTP API vs REST API
@@ -220,3 +248,7 @@ ISO8601 포맷은 날짜와 시간과 관련된 데이터 교환을 다루는 �
 > 4. 애플리케이션의 상태에 대한 엔진으로서 하이퍼미디어(HATEOAS)
 >
 > 우아한형제들 김영한 개발이사 인용
+
+```
+
+```
