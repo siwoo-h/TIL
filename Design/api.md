@@ -237,7 +237,7 @@ Content-Range: bytes 100-200/500
 
 `Content-Range` 헤더에 대해 검색했을 때 찾을 수 있는 예시이다.<br>
 `bytes` 단위의 페이지네이션이 아닌 `pages` 단위로 페이지네이션을 구현할 수 있을까?<br>
-[다음 문서](https://blog.npcode.com/2013/02/10/http1-1%EC%9D%98-range-%EC%9A%94%EC%B2%AD%EA%B3%BC-%EC%9D%B4%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-pagination/)의 내용을 인용하고 있다.<br>
+[다음 문서](https://blog.npcode.com/2013/02/10/http1-1%EC%9D%98-range-%EC%9A%94%EC%B2%AD%EA%B3%BC-%EC%9D%B4%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-pagination/)에서 잘 정리되어 있다.<br>
 
 > 웹 애플리케이션의 pagination을 구현하기 위해 직접 정의한 “pages”라는 단위와 HTTP/1.1의 Accept-Ranges, Range, Content-Range 헤더를 이용한다.
 > 각 헤더의 사용 방법은 다음과 같다.
@@ -255,6 +255,9 @@ Range: pages=1
 HTTP/1.1 206 Partial Content
 Content-Range: pages 1/2
 ```
+
+일반적으로 페이지네이션을 구현하기 위해서는 query string을 이용한다.<br>
+range 요청을 이용한다면, 표준화된 인터페이스와 동작을 지원할 수 있다.<br>
 
 ---
 
