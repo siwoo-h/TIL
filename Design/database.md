@@ -21,6 +21,14 @@
 7. 디자인 구체화
 8. 정규화 규칙 적용
 
+> **데이터베이스 정규화**
+>
+> 1. 제 1 정규형: 도메인의 원자성
+> 2. 제 2 정규형: 부분 함수적 종속 제거
+> 3. 제 3 정규형: 이행 함수적 종속 제거
+> 4. 보이스-코드 정규형: 후보 키가 아닌 결정자 제거
+
 > **출처**
 >
 > - [데이터베이스 디자인의 기초](https://support.microsoft.com/ko-kr/office/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-eb2159cf-1e30-401a-8084-bd4f9c9ca1f5)
+> - [데이터베이스 정규화](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EC%A0%95%EA%B7%9C%ED%99%94)
