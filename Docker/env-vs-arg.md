@@ -14,10 +14,19 @@ Dockerfile 환경변수를 설정하는 방법
 - 선언 방법: ARG VAR="VAR", ARG VAR "VAR"
 - 호출 방법: $VAR, ${VAR}
 
+## 조건문 사용하기
+
 ```
 # Dockerfile
 SHELL ["/bin/bash", "-c"]
 ENV VAR="var"
 
-CMD echo "argument = ${VAR}"
+CMD if ["${VAR}" == "foo"] ;\
+        then echo "${VAR} is foo" ;\
+        else echo "${VAR} is var" ;\
+    fi
+
+$ sudo docker build --tag example .
+$ sudo docker run --env VAR=foo example
+
 ```
