@@ -2,6 +2,12 @@
 
 docker-compose.yml 파일에서 참조할 환경변수 파일을 설정할 수 있다.
 
+## TLTR;
+
+- 기본 파일명: `.env`
+- `--env-file` 옵션: Compose 실행
+- `env_file` 옵션: docker-compose 내 서비스에서 설정
+
 ```
 # 기본적으로 .env 파일 호출
 $ docker compose config
@@ -15,7 +21,3 @@ web:
   env_file:
     - .env.dev
 ```
-
-- 기본 파일명: `.env`
-- `--env-file` 옵션: Compose 실행
-- `env_file` 옵션: docker-compose 내 서비스에서 설정
