@@ -8,9 +8,11 @@
 ## 📖 Design
 
 - [API](/Design/api.md)
+- [Database](/Design/database.md)
 
 ## 📖 Docker
 
+- [ENV file](/Docker/env-file.md)
 - [ENV vs ARG](/Docker/env-vs-arg.md)
 
 ## 📖 Github
