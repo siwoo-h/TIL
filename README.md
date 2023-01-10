@@ -14,7 +14,7 @@
 
 - [ENV file](/Docker/env-file.md)
 - [ENV vs ARG](/Docker/env-vs-arg.md)
-- [Links](/Docker/links.md)
+- [links vs depends_on](/Docker/links-vs-depends-on.md)
 
 ## 📖 Github
 

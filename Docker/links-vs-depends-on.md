@@ -1,9 +1,11 @@
-# links
+# links vs depends_on
+
+## links
 
 도커 네트워크 구조 중 `links` 옵션이 있다.
 `links`는 같은 네트워크 내 컨테이너 서비스 간 통신을 할 때 사용한다.
 
-## 사용하기
+### 사용하기
 
 ```yml
 version: "3.8"
