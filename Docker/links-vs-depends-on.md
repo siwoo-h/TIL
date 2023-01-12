@@ -41,3 +41,25 @@ networks:
   app_network:
     driver: bridge
 ```
+
+## depends_on
+
+서비스 실행/중지 순서를 결정한다.
+
+```yml
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+
+  web-app:
+    image: web-app:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+```
