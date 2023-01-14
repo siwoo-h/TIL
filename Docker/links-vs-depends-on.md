@@ -4,6 +4,9 @@
 
 도커 네트워크 구조 중 `links` 옵션이 있다.
 `links`는 같은 네트워크 내 컨테이너 서비스 간 통신을 할 때 사용한다.
+`links`옵션은 docker 네트워크의 도입으로 자동으로 이름이 검색될 수 있기 때문에 레거시로 분류하고 있다고 한다.
+
+> 참고: docker networking[[link](https://docs.docker.com/network/)]
 
 ### 사용하기
 
