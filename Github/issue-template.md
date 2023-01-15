@@ -73,4 +73,7 @@ assignees: ''
 - resolves
 - resolved
 
-자세한 내용은 다음 문서([Linking a pull request to an issue using a keyword](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword))를 참고하자.
+# References
+
+- Eslint's github[[link](https://github.com/eslint/eslint/issues/new/choose)]
+- Linking a pull request to an issue using a keyword[[link](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)]
