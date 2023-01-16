@@ -1,4 +1,4 @@
-# Compotency
+# Competency
 
 개발자의 핵심 역량은 무엇이라고 정의해야할까?
 

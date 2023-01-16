@@ -2,16 +2,28 @@
 
 ## 📖 Common
 
-- [Compotency](/%08Common/competency.md)
+- [Competency](/%08Common/competency.md)
 - [Documentation](/%08Common/documentation.md)
 
 ## 📖 Design
 
 - [API](/Design/api.md)
+- [Database](/Design/database.md)
+
+## 📖 Docker
+
+- [ENV file](/Docker/env-file.md)
+- [ENV vs ARG](/Docker/env-vs-arg.md)
+- [links vs depends_on](/Docker/links-vs-depends-on.md)
+
+## 📖 Github
+
+- [Issue Template](/Github/issue-template.md)
 
 ## 📖 NestJS
 
 - [File Upload](/NestJS/file-upload.md)
+- [HTTP Exception](/NestJS/http-exception.md)
 - [Rate Limiting](/NestJS/rate-limiting.md)
 - [Task Scheduling](/NestJS/task-scheduling.md)
 
