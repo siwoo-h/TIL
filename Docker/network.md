@@ -4,7 +4,7 @@
 
 ## 네트워크 종류
 
-- bridge
+- bridge: bridge 별 네트워크 구성됨, bridge 간 통신은 별도 구성이 없는 경우 제어됨
 - host
 - overlay
 - ipvlan
