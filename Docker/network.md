@@ -5,8 +5,8 @@
 ## 네트워크 종류
 
 - bridge: bridge 별 네트워크 구성됨, bridge 간 통신은 별도 구성이 없는 경우 제어됨
-- host
-- overlay
+- host: 컨테이너 호스트와 동일한 네트워크에서 컨테이너를 돌리기 위해 사용함
+- overlay: 여러 호스트 간 컨테이너 네트워킹 구성함
 - ipvlan
 - macvlan
 - none
