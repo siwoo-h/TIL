@@ -1,4 +1,4 @@
-// pdf(p100), Remove Dups
+// pdf(p106), 2.1 Remove Dups
 /**
  * 질문 1: 대소문자 구분? Y
  * 질문 2: 띄어쓰기도 중복값에 포함? Y
