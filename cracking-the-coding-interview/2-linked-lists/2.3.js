@@ -25,30 +25,26 @@ function deleteMiddleNode(input) {
     middleNodeIndex = Math.floor(input.length / 2);
   }
 
-  let output = {};
-  for (const i in input) {
-    const curIndex = Number(i);
-    if (curIndex < middleNodeIndex) {
-      output[curIndex] = {
-        data: input[curIndex],
-        next: curIndex + 1,
-      };
+  const output = [];
+  for (let i = 0; i < input.length; i++) {
+    if (i === middleNodeIndex) {
       continue;
     }
-    if (curIndex > middleNodeIndex) {
-      output[curIndex] = {
-        data: input[curIndex],
-        next: curIndex === input.length - 1 ? null : curIndex + 1,
-      };
-      continue;
-    }
+    output.push(input[i]);
   }
   return output;
 }
 
 // a->b->d->e->f
-console.log(deleteMiddleNode(["a", "b", "c", "d", "e", "f"]));
-// a->b->c->d->f->g->h->i->j
-console.log(deleteMiddleNode(["a", "b", "c", "d", "e", "f", "g", "h", "i"]));
+console.log(
+  deleteMiddleNode([
+    { data: "a", next: 100 },
+    { data: "b", next: 200 },
+    { data: "c", next: 300 },
+    { data: "d", next: 400 },
+    { data: "e", next: 500 },
+    { data: "f", next: null },
+  ])
+);
 // 없음
-console.log(deleteMiddleNode(["a"]));
+console.log(deleteMiddleNode([{ data: "a", next: null }]));
