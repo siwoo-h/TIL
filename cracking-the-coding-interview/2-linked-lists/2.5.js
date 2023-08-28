@@ -90,7 +90,40 @@ function convertNumberToList(input) {
   return output;
 }
 
+/**
+ * 문제 1 - 정답
+ * 시간 복잡도: O(N)
+ * 공간 복잡도: O(N)
+ */
+function sumReverseListsEnhanced(input1, input2) {
+  if (input1.length < input2.length) {
+    return sumDigitNumber(input2, input1);
+  }
+  return sumDigitNumber(input1, input2);
+}
+
+function sumDigitNumber(input1, input2) {
+  const output = [];
+  let carry = 0;
+  for (let i = 0; i < input2.length; i++) {
+    let temp = 0;
+    if (input1.length > i) {
+      temp = input1[i];
+    }
+    if (carry > 0) {
+      temp += carry;
+      carry = 0;
+    }
+    output.push({ data: (temp + input2[i]) % 10, next: input2[i].next });
+    carry = Math.floor((temp + input2[i]) / 10);
+  }
+  return output;
+}
+
 // 2 -> 1 -> 9 (912)
-console.log(sumReverseLists([7, 1, 6], [5, 9, 2]));
+// console.log(sumReverseLists([7, 1, 6], [5, 9, 2]));
 // 9 -> 1 -> 2 (912)
-console.log(sumLists([6, 1, 7], [2, 9, 5]));
+// console.log(sumLists([6, 1, 7], [2, 9, 5]));
+
+// 2 -> 1 -> 9 (912)
+console.log(sumReverseListsEnhanced([7, 1, 6], [5, 9, 2]));
